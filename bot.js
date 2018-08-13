@@ -495,5 +495,13 @@ if (message.content.startsWith('صراحة')) {
   console.log('[id] Send By: ' + message.author.username)
     }
 });
+client.on('message', message => {
+if (message.content.startsWith(prefix+"voice")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.createChannel(`${argrst}`,'voice')
+         
+        }
+});
 
 client.login(process.env.BOT_TOKEN);
