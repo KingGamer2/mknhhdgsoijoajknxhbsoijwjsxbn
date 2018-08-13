@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const fs = require("fs")
+const fs = require("fs");
 const client = new Discord.Client();
 client.on('ready', () => {
   client.user.setGame(`for help type | %help  .`,'https://www.youtube.com/kinggamer_th3');
