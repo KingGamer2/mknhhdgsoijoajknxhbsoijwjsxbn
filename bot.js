@@ -76,13 +76,14 @@ client.on("message", message => {
 💎%coins  『لمعرفة كم كوين تملك』
 
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-`)
-
+    
+	`)
+	
 msg.reply(':envelope: | تم ارسال الرساله في الخاص');
 message.author.sendEmbed(embed)
 
 }
-}); 
+});
 client.on("message", message => {
     var prefix = "%";
  
@@ -353,7 +354,7 @@ client.on('message', message => {
   }
 });
 client.on("message", message => {
- if (message.content === "%games") {
+ if (message.content === "%العاب") {
         message.react("😘")
            message.react("😵")
   const embed = new Discord.RichEmbed() 
@@ -579,4 +580,5 @@ if (message.content.startsWith(prefix+"voice")) {
          
         }
 });
+
 client.login(process.env.BOT_TOKEN);
