@@ -137,19 +137,6 @@ client.on('message', msg => {
   message.channel.sendEmbed(embed);
     }
 });
-client.on("guildMemberRemove", member => {
-  let guild = member.guild;
-  guild.defaultChannel.sendMessage("", {embed: {
-  color: 808080,
-  author: {
-    name: member.user.username,
-    icon_url: member.user.avatarURL
-  },
-  title: guild.name,
-  description: ' Bye ..',
-}}).catch(console.error);
-  }
-);
 var prefix = "%";
 client.on("message", message => {
 
