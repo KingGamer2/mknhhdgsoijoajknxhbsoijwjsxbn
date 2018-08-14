@@ -119,7 +119,9 @@ client.on("guildMemberAdd", member => {
 ●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●       
  ... [ ${member}  ]
 **`)
-});
+}).catch(console.error)
+
+})
 client.on('message', message => {
     if (message.content.startsWith("%avatar")) {
         var mentionned = message.mentions.users.first();
