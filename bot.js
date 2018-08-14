@@ -185,7 +185,7 @@ const secre = [
  
  
  client.on('message', message => {
-   if (message.content.startsWith("لوخيروك")) {
+   if (message.content.startsWith("%لوخيروك")) {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
@@ -339,6 +339,26 @@ client.on('message', message => {
   message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
   }
 });
+client.on("message", message => {
+ if (message.content === "%العاب") {
+        message.react("😘")
+           message.react("😵")
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+	  ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+   『اوامر الالعاب』👑
+
+   『لوخيروك%』
+
+   『كت_تويت%』
+
+   『فكك%』
+
+   『صراحة%』
+	  ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 client.on("message", (message) => {
             if (message.channel.type === "dm") {
         if (message.author.id === client.user.id) return;
@@ -476,7 +496,7 @@ const Sra7a = [
     'صراحه  |  ما هي أمنياتك المُستقبلية؟‏',
 ]
   client.on('message', message => {
-if (message.content.startsWith('صراحة')) {
+if (message.content.startsWith('%صراحة')) {
     if(!message.channel.guild) return message.reply('** This command only for servers **');
  var client= new Discord.RichEmbed()
  .setTitle("لعبة صراحة ..")
@@ -520,7 +540,7 @@ if (message.content.startsWith('صراحة')) {
 ]
 
  client.on('message', message => {
-   if (message.content.startsWith("كت_تويت")) {
+   if (message.content.startsWith("%كت_بوت")) {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
