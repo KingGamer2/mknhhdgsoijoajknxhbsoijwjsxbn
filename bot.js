@@ -40,9 +40,7 @@ client.on('message', msg => {
   }
 });
 client.on("message", message => {
- if (message.content === "%help^") {
-        message.react("😘")
-           message.react("😵")
+ if (message.content === "%help") {
   const embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
@@ -73,8 +71,9 @@ client.on("message", message => {
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
     
 	`)
-	
-msg.reply(':envelope: | تم ارسال الرساله في الخاص');
+  
+  
+  
 message.author.sendEmbed(embed)
 
 }
@@ -350,8 +349,6 @@ client.on('message', message => {
 });
 client.on("message", message => {
  if (message.content === "%games") {
-        message.react("😘")
-           message.react("😵")
   const embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
@@ -372,11 +369,21 @@ client.on("message", message => {
 
 
 `)
-msg.reply(':envelope: | تم ارسال الرساله في الخاص');
-message.author.sendEmbed(embed)
 
+message.author.sendEmbed(embed)
+	 
 }
 }); 
+client.on('message', msg => {
+  if (msg.content === '%help') {
+    msg.reply(':envelope: | تم ارسال الرساله في الخاص');
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '%games') {
+    msg.reply(':envelope: | تم ارسال الرساله في الخاص');
+  }
+});
 client.on("message", (message) => {
             if (message.channel.type === "dm") {
         if (message.author.id === client.user.id) return;
