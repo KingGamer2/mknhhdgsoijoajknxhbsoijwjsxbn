@@ -20,26 +20,6 @@ client.on('message', msg => {
     msg.reply('Pong!');
   }
 });
-if (message.content === '%help') {
-              var embed  = new Discord.RichEmbed()
-                .addField("**LINKS**" ,":no_entry_sign: قريبا سيتم اضافة امر ميوزك :no_entry_sign: ")
-	        .addField("**bot_Informations**","**الاستخدام:** ``%bot`` معلومات عن البوت")
-                .addField("broadcast (bc)" ,"**الاستخدام:** ``%broadcast <الرساله> , %bc <الرساله>``")
-                .addField("**BAN**" ,"**الاستخدام:** ``%ban <المستخدم>``")
-                .addField("**KICK**" ,"**الاستخدام:** ``%kick <المستخدم> ``")
-                .addField("**ِAVATAR**" ,"**الاستخدام:** ``%avatar``")
-                .addField("**ID**" ,"**ال��ستخدام:** ``%id``")
-                .addField("**INVITE**" ,"**الاستخدام:** ``%invite <لأضافه البوت لأى سيرفر>``")
-                .addField("**SUPPORT**" ,"**الاستخدام:** ``%suppport <سيرفر دعم الفنى>``")
-                .addField("**CLEAR**" ,"**الاستخدام:** ``%clear <العدد>``")
-                .addField("**Games**" ,"العاب* `` **الاستخدام%:**``")
-                .addField("**Coins**","الاستخدام:** ``%coins``")
-                .addField("**NO INVITE LINKE**","تم اضافة خاصية منع الانفيتات ")				
-                .setColor('RANDOM')
-.setColor('RANDOM')
-  message.author.sendEmbed(embed);
-    }
-});
 client.on('message', message => {
   if(message.content === ('%clear')) {
   let modRole = message.guild.roles.find("name", "ADMINISTRATOR");
@@ -64,11 +44,45 @@ client.on('message', msg => {
     msg.reply('https://discordapp.com/oauth2/authorize?client_id=472489658241253376&permissions=3669062&scope=bot');
   }
 });
-client.on('message', msg => {
-  if (msg.content === '%help') {
-    msg.reply(':envelope: | تم ارسال الرساله في الخاص');
-  }
-});
+client.on("message", message => {
+ if (message.content === "!help^") {
+        message.react("😘")
+           message.react("😵")
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+
+💎『اوامر عامة』💎
+                        
+💎%server 『معلومات عن السيرفر』                      
+
+💎%bot 『معلومات عن البوت』  
+
+💎%servers 『لمعرف البوت بكم سيرفر』
+
+💎%games 『لعرض قائمة العاب البوت』
+
+💎%ping 『لمعرفه سرعه البوت』
+
+💎%id 『معلومات عن حسابك』
+
+💎%support 『لسيرفر المساعدة او الدعم』
+
+💎%invite 『لدعوة البوت الى سيرفرك』
+
+💎%coins  『لمعرفة كم كوين تملك』
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
+`)
+
+msg.reply(':envelope: | تم ارسال الرساله في الخاص');
+message.author.sendEmbed(embed)
+
+}
+}); 
 client.on("message", message => {
     var prefix = "%";
  
@@ -339,7 +353,7 @@ client.on('message', message => {
   }
 });
 client.on("message", message => {
- if (message.content === "%العاب") {
+ if (message.content === "%games") {
         message.react("😘")
            message.react("😵")
   const embed = new Discord.RichEmbed() 
@@ -360,7 +374,7 @@ client.on("message", message => {
 	  ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 `)
 
-
+msg.reply(':envelope: | تم ارسال الرساله في الخاص');
 message.author.sendEmbed(embed)
 
 }
@@ -565,5 +579,4 @@ if (message.content.startsWith(prefix+"voice")) {
          
         }
 });
-
 client.login(process.env.BOT_TOKEN);
