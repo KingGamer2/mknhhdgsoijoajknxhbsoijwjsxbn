@@ -109,7 +109,7 @@ client.on("message", message => {
 // Your Avatar URL!
 var prefix = "%";
 client.on('message', message => {
-    if (message.content === "%Avatar") {
+    if (message.content === "%avatar") {
     message.reply(message.author.avatarURL); 
     }
 });
@@ -373,8 +373,10 @@ client.on("message", message => {
 
    『صراحة%』
 	  ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
-`)
 
+
+
+`)
 msg.reply(':envelope: | تم ارسال الرساله في الخاص');
 message.author.sendEmbed(embed)
 
@@ -572,13 +574,5 @@ if (message.content.startsWith('%صراحة')) {
   console.log('[id] Send By: ' + message.author.username)
     }
 });
-client.on('message', message => {
-if (message.content.startsWith(prefix+"voice")) {
-    var args = message.content.split(" ").slice(1);
-    var argrst = args.join(' ');
-                message.guild.createChannel(`${argrst}`,'voice')
-         
-        }
-});
-
+	
 client.login(process.env.BOT_TOKEN);
