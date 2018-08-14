@@ -158,8 +158,7 @@ message.channel.send({embed:embed});
     }
 });
 client.on('message', async najzx => {
-    if(najzx.content.startsWith("+tv")) {
-      if(!najzx.member.hasPermission('MANAGE_CHANNELS')) return;
+    if(najzx.content.startsWith("%tv")) {
       await najzx.channel.send("ارسل اسم الروم").then(e => {
       let filter = m => m.author.id === najzx.author.id
       let name = '';
