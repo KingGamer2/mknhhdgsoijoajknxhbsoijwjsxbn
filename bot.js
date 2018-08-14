@@ -550,7 +550,7 @@ if (message.content.startsWith('%صراحة')) {
     }
 });
 client.on('message', (message) => {
-if(message.content === adminprefix + "ban")) {
+if(message.content === adminprefix + "ban") {
       if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('هذا الخاصية للدارة فقط');
         var member= message.mentions.members.first();
         member.ban().then((member) => {
@@ -561,7 +561,7 @@ if(message.content === adminprefix + "ban")) {
     }
 });
 client.on('message', (message) => {
-if(message.content === adminprefix + "kick")) {
+if(message.content === adminprefix + "kick") {
         var member= message.mentions.members.first();
         member.kick().then((member) => {
             message.channel.send(member.displayName + ' تم طرد هذا الشخص من السيرفر');
