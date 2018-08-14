@@ -566,4 +566,4 @@ if (message.content.startsWith('%صراحة')) {
     }
 });
 
-client.login("NDcyNDg5NjU4MjQxMjUzMzc2.Dk-54g.5PsLw6K4PUMPdIKuzghYS2-RJDs");
+client.login(process.env.BOT_TOKEN);
