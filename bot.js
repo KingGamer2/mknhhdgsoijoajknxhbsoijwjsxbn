@@ -549,7 +549,6 @@ if (message.content.startsWith('%صراحة')) {
   console.log('[id] Send By: ' + message.author.username)
     }
 });
-const adminprefix = "-";
 client.on('message', (message) => {
 if(message.content === adminprefix + "ban")) {
       if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('هذا الخاصية للدارة فقط');
