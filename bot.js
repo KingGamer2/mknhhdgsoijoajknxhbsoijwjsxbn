@@ -154,17 +154,6 @@ client.on("message", message => {
  message.delete(); 
 };     
 });
-client.on("message", (message) => {
-    if (message.content.startsWith("%ban ")) {
-      if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('⚠ ماعندك الصلاحيات');
-        var member= message.mentions.members.first();
-        member.ban().then((member) => {
-            message.channel.send(member.displayName + " لقد تم طرده بنجاح :wave: ");
-        }).catch(() => {
-            message.channel.send(":x: هناك خطاء حاول مره أخرى:x: ");
-        });
-    }
-});
 const secre = [
   "**لو خيروك بين العيش وحدك في جزيرة كبيرة منعزلة مع أكبر درجات الرفاهية وبين العيش في مكان قديم ولكن مع أصدقائك المقربين**.",
   "**لو خيروك بين فقدان ذاكرتك والعيش مع أصدقائك وأقربائك أو بقاء ذاكرتك ولكن العيش وحيد**.",
@@ -559,5 +548,27 @@ if (message.content.startsWith('%صراحة')) {
   console.log('[id] Send By: ' + message.author.username)
     }
 });
+const adminprefix = "-";
+client.on('message', (message) => {
+if(message.content === adminprefix + "ban") {
+      if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('هذا الخاصية للدارة فقط');
+        var member= message.mentions.members.first();
+        member.ban().then((member) => {
+         message.channel.send(member.displayName + 'تم طرد هذا الشخص من السيرفر');
+        }).catch(() => {
+            message.channel.send('Error :_:');
+        });
+    }
+});
+client.on('message', (message) => {
+if(message.content === adminprefix + "kick") {
+        var member= message.mentions.members.first();
+        member.kick().then((member) => {
+            message.channel.send(member.displayName + ' تم طرد هذا الشخص من السيرفر');
+        }).catch(() => {
+            message.channel.send(":x:");
+        });
+    }
+}); 
 
 client.login(process.env.BOT_TOKEN);
