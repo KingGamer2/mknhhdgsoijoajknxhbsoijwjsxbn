@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require('fs');
-const adminprefix = "-";
 client.on('ready', () => {
   client.user.setGame(`for help type | %help  .`,'https://www.youtube.com/kinggamer_th3');
   console.log('---------------');
@@ -9,10 +8,10 @@ client.on('ready', () => {
   console.log('---------------')
 });
 client.on('message', message => {
-     if (message.content === "%servers") {
+     if (message.content === "!servers") {
      let embed = new Discord.RichEmbed()
-  .setColor("#0000FF")
-  .addField("**Server: **" , client.guilds.size)
+  .setColor("RANDOM")
+  .addField("**| السيرفرات |**" , client.guilds.size)
   message.channel.sendEmbed(embed);
     }
 });
@@ -34,6 +33,12 @@ client.on('message', message => {
         message.delete()
     return message.reply(`** No Invite Links :angry: ! **`)
     }
+});
+var prefix = "%";
+client.on('message', msg => {
+  if (msg.content === '%support') {
+    msg.reply('https://discord.chat/arabmc');
+  }
 });
 client.on('message', msg => {
   if (msg.content === '%invite') {
@@ -101,28 +106,39 @@ client.on("message", message => {
 
      
 });
-// Your Avatar URL!
-var prefix = "%";
 client.on('message', message => {
-    if (message.content === "%avatar") {
-    message.reply(message.author.avatarURL); 
+    if (message.content.startsWith("%avatar")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
     }
 });
-var prefix = "%";
-client.on("message", message => {
-      if (message.content === "%ping") {
-      const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .addField('**Ping:**' , `${Date.now() - message.createdTimestamp}` + ' ms')
-  message.channel.sendEmbed(embed);
-    }
-});
-var prefix = "%";
-client.on('message', msg => {
-  if (msg.content === '%support') {
-    msg.reply('https://discord.chat/arabmc');
-  }
-});
+
+                    client.on('message', message => {
+                                if(!message.channel.guild) return;
+                        if (message.content.startsWith('%ping')) {
+                            if(!message.channel.guild) return;
+                            var msg = `${Date.now() - message.createdTimestamp}`
+                            var api = `${Math.round(client.ping)}`
+                            if (message.author.bot) return;
+                        let embed = new Discord.RichEmbed()
+                        .setAuthor(message.author.username,message.author.avatarURL)
+                        .setThumbnail('https://cdn.discordapp.com/avatars/368141321547808768/c42716e13cb850f9ad0930af699472d0.png?size=2048nk')
+                        .setColor('RANDOM')
+                        .addField('**Time Taken:**',msg + " ms")
+                        .addField('**WebSocket:**',api + " ms")
+message.channel.send({embed:embed});
+                        }
+                    });
     client.on('message', message => {
      if (message.content === "%id") {
      let embed = new Discord.RichEmbed()
@@ -140,6 +156,24 @@ client.on('message', msg => {
      
   message.channel.sendEmbed(embed);
     }
+});
+client.on("message", (message) => {
+if (message.content.startsWith("%ct")) {
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+        let args = message.content.split(" ").slice(1);
+    message.guild.createChannel(args.join(' '), 'text');
+message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
+
+}
+});
+client.on("message", (message) => {
+if (message.content.startsWith("%cv")) {
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+        let args = message.content.split(" ").slice(1);
+    message.guild.createChannel(args.join(' '), 'voice');
+    message.channel.sendMessage('تـم إنـشاء روم صـوتي')
+    
+}
 });
 var prefix = "%";
 client.on("message", message => {
@@ -549,8 +583,9 @@ if (message.content.startsWith('%صراحة')) {
   console.log('[id] Send By: ' + message.author.username)
     }
 });
+var prefix = "-"
 client.on('message', (message) => {
-if(message.content === adminprefix + "ban") {
+if(message.content.startsWith(prefix + "ban")) {
       if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('هذا الخاصية للدارة فقط');
         var member= message.mentions.members.first();
         member.ban().then((member) => {
@@ -560,8 +595,9 @@ if(message.content === adminprefix + "ban") {
         });
     }
 });
+var prefix = "-"
 client.on('message', (message) => {
-if(message.content === adminprefix + "kick") {
+if(message.content.startsWith(prefix + "kick")) {
         var member= message.mentions.members.first();
         member.kick().then((member) => {
             message.channel.send(member.displayName + ' تم طرد هذا الشخص من السيرفر');
