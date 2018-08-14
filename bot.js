@@ -4,7 +4,7 @@ const fs = require('fs');
 client.on('ready', () => {
   client.user.setGame(`for help type | %help  .`,'https://www.youtube.com/kinggamer_th3');
   console.log('---------------');
-  console.log(' KingBot Is Online')
+  console.log('KingBot Is Online')
   console.log('---------------')
 });
 client.on('message', message => {
@@ -14,11 +14,6 @@ client.on('message', message => {
   .addField("**Server: **" , client.guilds.size)
   message.channel.sendEmbed(embed);
     }
-
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-  }
 });
 client.on('message', message => {
   if(message.content === ('%clear')) {
@@ -45,7 +40,7 @@ client.on('message', msg => {
   }
 });
 client.on("message", message => {
- if (message.content === "!help^") {
+ if (message.content === "%help^") {
         message.react("😘")
            message.react("😵")
   const embed = new Discord.RichEmbed() 
@@ -354,7 +349,7 @@ client.on('message', message => {
   }
 });
 client.on("message", message => {
- if (message.content === "%العاب") {
+ if (message.content === "%games") {
         message.react("😘")
            message.react("😵")
   const embed = new Discord.RichEmbed() 
@@ -420,9 +415,6 @@ client.on("ready", () => {
         });
     });
 });
-
-
-
 client.on("guildMemberAdd", (member) => {
     let channel = member.guild.channels.get("465084554445848584");
     if (!channel) {
@@ -561,7 +553,6 @@ if (message.content.startsWith('%صراحة')) {
      '‏كت تويت | مطلبك الوحيد الحين ؟',
      '‏كت تويت | هل حدث وشعرت بأنك ارتكبت أحد الذنوب أثناء الصيام؟',
 ]
-
  client.on('message', message => {
    if (message.content.startsWith("%كت_بوت")) {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
@@ -574,5 +565,5 @@ if (message.content.startsWith('%صراحة')) {
   console.log('[id] Send By: ' + message.author.username)
     }
 });
-	
-client.login(process.env.BOT_TOKEN);
+
+client.login("NDcyNDg5NjU4MjQxMjUzMzc2.Dk-54g.5PsLw6K4PUMPdIKuzghYS2-RJDs");
