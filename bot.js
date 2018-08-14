@@ -398,19 +398,6 @@ client.on("message", (message) => {
                 client.users.get("352832614190809089").send(yumz)
             }
 });
-client.on('message', message => {
-            if (message.content.startsWith(prefix + "bot")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField(' السيرفرات🌐',`[${client.guilds.size}]  `)
-.addField(' الاعضاء👥 ',` [${client.users.size}] `)
-.addField('الرومات📚 ',`[${client.channels.size}]`) 
-.addField(' البنق🚀 ',`[${Date.now() - message.createdTimestamp}]`) 
-.addField('مصمم  + صاحب البوت ',`KingGamer`)
-.setColor('#7d2dbe')
-  message.channel.sendEmbed(embed);
-    }
-});
 client.on("ready", () => {
     var guild;
     while (!guild)
