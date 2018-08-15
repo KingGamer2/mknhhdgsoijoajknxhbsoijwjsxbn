@@ -272,20 +272,6 @@ const secre = [
   console.log('[id] Send By: ' + message.author.username)
     }
 });
-var prefix = "%";
-client.on("message", message => {
-
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` :عدد الاعضاء المستلمين`); 
- message.delete(); 
- };     
-});
 client.on('guildCreate', guild => {
   client.channels.get("465087822836006913").send(`:white_check_mark: **تم اضافة البوت في سيرفر جديد مبروكك
 Server name: __${guild.name}__
@@ -751,6 +737,20 @@ if (command == "emb")    {
     message.channel.sendEmbed(say); 
     message.delete(); 
   } 
+});
+var prefix = "%";
+client.on("message", message => {
+
+            if (message.content.startsWith(prefix + "bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
 });
 
 client.login(process.env.BOT_TOKEN);
