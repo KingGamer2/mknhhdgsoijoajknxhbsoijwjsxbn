@@ -229,7 +229,7 @@ client.on('message', async najzx => {
   })
   
     }
-  })
+ });
 var prefix = "%";
 client.on("message", message => {
 
@@ -240,7 +240,7 @@ client.on("message", message => {
   message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
  m.send(`${argresult}\n ${m}`);
 })
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : Ø¹Ø¯Ø¯ Ø§Ù„Ø§Ø¹Ø¶Ø§Ø¡ Ø§Ù„Ù…Ø³ØªÙ„Ù…ÙŠÙ†`); 
  message.delete(); 
 };     
 });
