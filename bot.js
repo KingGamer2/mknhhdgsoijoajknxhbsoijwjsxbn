@@ -465,6 +465,10 @@ client.on("message", (message) => {
                 client.users.get("352832614190809089").send(yumz)
             }
 });
+client.on("guildMemberAdd", function(member) {
+    let role = member.guild.roles.find("name", "{♡MembeR☆}");
+    member.addRole(role).catch(console.error);
+});
 client.on("ready", () => {
     var guild;
     while (!guild)
