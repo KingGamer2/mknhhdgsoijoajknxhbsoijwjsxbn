@@ -26,14 +26,6 @@ client.on('message', message => {
         .then(messages => message.channel.bulkDelete(messages));
   }
 });
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('discord.gg')){
-      if(!message.member.hasPermission('ADMINISTRATOR'))
-        message.delete()
-    return message.reply(`** No Invite Links :angry: ! **`)
-    }
-});
 var prefix = "%";
 client.on('message', msg => {
   if (msg.content === '%support') {
@@ -680,6 +672,20 @@ if (command == "emb")    {
     message.channel.sendEmbed(say); 
     message.delete(); 
   } 
+});
+var prefix = "%";
+client.on("message", message => {
+
+            if (message.content.startsWith(prefix + "bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
 });
 
 client.login(process.env.BOT_TOKEN);
