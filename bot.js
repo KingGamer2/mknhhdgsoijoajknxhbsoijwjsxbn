@@ -18,10 +18,13 @@ client.on('message', message => {
         .then(messages => message.channel.bulkDelete(messages));
   }
 });
-var prefix = "%";
-client.on('message', msg => {
-  if (msg.content === '%support') {
-    msg.reply('https://discord.chat/arabmc');
+client.on('message', message => {
+  if(message.content === '%support') {
+  const embed = new Discord.RichEmbed()
+  .setTitle('Click here')
+  .setURL('https://discord.chat/arabmc')
+  .setColor('RANDOM')
+  message.channel.send({embed: embed});
   }
 });
 client.on("message", message => {
